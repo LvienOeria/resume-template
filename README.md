@@ -1,4 +1,4 @@
-# 苹果风简历模板 / Apple-Style Resume Template
+# 简介风简历模板 / Apple-Style Resume Template
 
 一个基于 **JSON + HTML/CSS/JS** 的苹果极简风简历模板。内容与样式分离，日常只需编辑 `resume.json` 即可更新中英文简历；如需深度客制化，再改 `index.html` 中的 CSS / 渲染逻辑。
 
