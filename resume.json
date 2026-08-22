@@ -1,0 +1,250 @@
+{
+  "photo": null,
+  "summaryImage": "logos/agents.png",
+  "zh": {
+    "name": "张三",
+    "aka": "San Zhang",
+    "contacts": [
+      { "icon": "phone", "text": "(+86) 138-0000-0000" },
+      { "icon": "mail", "text": "you@example.com", "href": "mailto:you@example.com" },
+      { "icon": "github", "text": "github.com/yourname", "href": "https://github.com/yourname" },
+      { "icon": "homepage", "text": "yourname.github.io", "href": "https://yourname.github.io/" }
+    ],
+    "summary": "简单介绍自己：擅长 **某项技能**，{{image}}；喜欢做产品、思考 **意义、交互与体验**；日常喜欢研究投资、参加体育运动。",
+    "education": {
+      "title": "教育背景",
+      "items": [
+        {
+          "icon": { "text": "校", "color": "#003D7C" },
+          "org": "示例大学", "orgSub": "计算机学院",
+          "role": "计算机科学 · 硕士",
+          "period": "2024.08 – 2026.01"
+        },
+        {
+          "icon": { "text": "校", "color": "#7B2D8B" },
+          "org": "示例大学", "orgSub": "数据科学学院",
+          "role": "计算机科学与技术 · 本科",
+          "period": "2020.09 – 2024.05"
+        }
+      ]
+    },
+    "skills": {
+      "title": "专业技能",
+      "levels": [
+        { "label": "熟练", "items": ["JavaScript", "TypeScript", "React", "Node.js"] },
+        { "label": "掌握", "items": ["CSS", "Python", "Markdown", "LaTeX"] },
+        { "label": "了解", "items": ["Docker", "SQL", "Figma", "Unity"] }
+      ]
+    },
+    "work": {
+      "title": "工作经历",
+      "items": [
+        {
+          "icon": { "text": "职", "color": "#1d1d1f" },
+          "org": "示例公司", "orgSub": "业务研发部",
+          "role": "软件开发工程师",
+          "period": "2026.03 – 至今",
+          "tags": ["TypeScript", "Node.js", "React"],
+          "bullets": [
+            "参与 **核心业务系统** 的维护、功能迭代与版本迁移",
+            "使用 **Python** 和 **Shell** 开发自动化脚本，提升团队效率",
+            "参与内部工具链建设，减少重复性人工操作"
+          ]
+        }
+      ]
+    },
+    "internship": {
+      "title": "实习经历",
+      "items": [
+        {
+          "icon": { "text": "实", "color": "#FF6A00" },
+          "org": "示例科技有限公司", "orgSub": "研发中心",
+          "role": "全栈开发实习生",
+          "period": "2025.05 – 2025.08",
+          "tags": ["TypeScript", "JavaScript", "Node.js", "React"],
+          "bullets": [
+            "参与内部业务平台的维护与功能开发",
+            "完善前端编辑器的交互与智能提示能力",
+            "为数据浏览页面增加格式转换与展示优化"
+          ]
+        }
+      ]
+    },
+    "campus": {
+      "title": "校园经历",
+      "items": [
+        {
+          "icon": { "text": "社", "color": "#0E7C7B" },
+          "org": "示例学生团队", "orgSub": "校园技术社团",
+          "role": "技术负责人",
+          "period": "2022.09 – 2023.05",
+          "tags": ["JavaScript", "Python", "项目管理"],
+          "bullets": [
+            "组织技术分享与团队协作，负责项目排期与技术选型",
+            "参与校园技术竞赛与开源活动",
+            "独立完成小型创意项目的原型设计与开发"
+          ]
+        }
+      ]
+    },
+    "projects": {
+      "title": "项目经历",
+      "items": [
+        {
+          "name": "示例项目 A",
+          "href": "https://github.com/yourname/project-a",
+          "role": "个人项目",
+          "period": "2026.05",
+          "tags": ["TypeScript", "Node.js"],
+          "desc": "一个用于演示的 **数据仪表盘** 应用：支持查询、筛选与可视化展示。"
+        },
+        {
+          "name": "示例项目 B",
+          "href": "https://github.com/yourname/project-b",
+          "role": "Web 应用",
+          "period": "2026.08",
+          "tags": ["React", "TypeScript", "Vite"],
+          "desc": "一个 **内容聚合** 网页应用，支持搜索、分组与本地持久化。"
+        },
+        {
+          "name": "示例项目 C",
+          "href": "https://github.com/yourname/project-c",
+          "role": "工具类项目",
+          "period": "2026.08",
+          "tags": ["JavaScript", "Markdown"],
+          "desc": "一个 **Markdown 笔记与知识管理** 小工具，支持导入导出与标签分类。"
+        }
+      ]
+    },
+    "awards": {
+      "title": "奖学金与证书",
+      "items": [
+        { "name": "示例奖学金", "detail": "30,000 RMB / 年", "period": "2020.06 – 2024.09" },
+        { "name": "示例英语能力考试", "detail": "Total Score: 105 / 120", "period": "2023.11" }
+      ]
+    }
+  },
+  "en": {
+    "name": "San Zhang",
+    "aka": "Zhang San",
+    "contacts": [
+      { "icon": "phone", "text": "(+86) 138-0000-0000" },
+      { "icon": "mail", "text": "you@example.com", "href": "mailto:you@example.com" },
+      { "icon": "github", "text": "github.com/yourname", "href": "https://github.com/yourname" },
+      { "icon": "homepage", "text": "yourname.github.io", "href": "https://yourname.github.io/" }
+    ],
+    "summary": "Briefly introduce yourself: proficient in **a key skill**, {{image}}; loves building products and thinking deeply about **meaning, interaction and experience**; enjoys researching investments and playing sports.",
+    "education": {
+      "title": "Education",
+      "items": [
+        {
+          "icon": { "text": "U", "color": "#003D7C" },
+          "org": "Example University", "orgSub": "School of Computing",
+          "role": "Master of Computing",
+          "period": "Aug 2024 – Jan 2026"
+        },
+        {
+          "icon": { "text": "U", "color": "#7B2D8B" },
+          "org": "Example University", "orgSub": "School of Data Science",
+          "role": "BEng in Computer Science & Technology",
+          "period": "Sep 2020 – May 2024"
+        }
+      ]
+    },
+    "skills": {
+      "title": "Technical Skills",
+      "levels": [
+        { "label": "Proficient", "items": ["JavaScript", "TypeScript", "React", "Node.js"] },
+        { "label": "Competent", "items": ["CSS", "Python", "Markdown", "LaTeX"] },
+        { "label": "Familiar", "items": ["Docker", "SQL", "Figma", "Unity"] }
+      ]
+    },
+    "work": {
+      "title": "Work Experience",
+      "items": [
+        {
+          "icon": { "text": "W", "color": "#1d1d1f" },
+          "org": "Example Company", "orgSub": "R&D Department",
+          "role": "Software Development Engineer",
+          "period": "Mar 2026 – Present",
+          "tags": ["TypeScript", "Node.js", "React"],
+          "bullets": [
+            "Participated in maintenance, feature iteration and version migration of **core business systems**",
+            "Developed automation scripts in **Python** and **Shell** to improve team efficiency",
+            "Contributed to internal toolchain development to reduce repetitive manual work"
+          ]
+        }
+      ]
+    },
+    "internship": {
+      "title": "Internship Experience",
+      "items": [
+        {
+          "icon": { "text": "I", "color": "#FF6A00" },
+          "org": "Example Tech Co., Ltd.", "orgSub": "R&D Center",
+          "role": "Full-stack Development Intern",
+          "period": "May 2025 – Aug 2025",
+          "tags": ["TypeScript", "JavaScript", "Node.js", "React"],
+          "bullets": [
+            "Participated in maintenance and feature development of internal business platforms",
+            "Improved front-end editor interaction and smart suggestions",
+            "Added format conversion and display optimisation to data browsing pages"
+          ]
+        }
+      ]
+    },
+    "campus": {
+      "title": "Campus Involvement",
+      "items": [
+        {
+          "icon": { "text": "S", "color": "#0E7C7B" },
+          "org": "Example Student Team", "orgSub": "Campus Tech Club",
+          "role": "Technical Lead",
+          "period": "Sep 2022 – May 2023",
+          "tags": ["JavaScript", "Python", "Project Management"],
+          "bullets": [
+            "Organised tech sharing and team collaboration; led scheduling and technology selection",
+            "Participated in campus tech competitions and open-source activities",
+            "Independently prototyped and developed small creative projects"
+          ]
+        }
+      ]
+    },
+    "projects": {
+      "title": "Projects",
+      "items": [
+        {
+          "name": "Example Project A",
+          "href": "https://github.com/yourname/project-a",
+          "role": "Personal Project",
+          "period": "May 2026",
+          "tags": ["TypeScript", "Node.js"],
+          "desc": "A demo **data dashboard** app: query, filter and visualise data."
+        },
+        {
+          "name": "Example Project B",
+          "href": "https://github.com/yourname/project-b",
+          "role": "Web App",
+          "period": "Aug 2026",
+          "tags": ["React", "TypeScript", "Vite"],
+          "desc": "A **content aggregation** web app with search, grouping and localStorage persistence."
+        },
+        {
+          "name": "Example Project C",
+          "href": "https://github.com/yourname/project-c",
+          "role": "Tool Project",
+          "period": "Aug 2026",
+          "tags": ["JavaScript", "Markdown"],
+          "desc": "A **Markdown note & knowledge management** tool with import/export and tag classification."
+        }
+      ]
+    },
+    "awards": {
+      "title": "Awards & Certifications",
+      "items": [
+        { "name": "Example Scholarship", "detail": "RMB 30,000 / year", "period": "Jun 2020 – Sep 2024" },
+        { "name": "Example English Test", "detail": "Total Score: 105 / 120", "period": "Nov 2023" }
+      ]
+    }
+  }
+}

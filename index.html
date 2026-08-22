@@ -1,0 +1,578 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>陈华勋 · 简历</title>
+<style>
+/* ============================================================
+   主题变量 —— 想换风格，只改这里
+   ============================================================ */
+:root {
+  --accent: #0071e3;            /* 强调色：苹果蓝 */
+  --link: #0066cc;              /* 链接色：更接近 Apple 官网的 #06c */
+  --text-primary: #1d1d1f;      /* 主文字 */
+  --text-secondary: #515154;    /* 次要文字（比原来深，提升可读性） */
+  --text-body: #2d2d2f;         /* 正文 */
+  --page-bg: #f5f5f7;           /* 屏幕页面背景 */
+  --sheet-bg: #ffffff;          /* 纸张 */
+  --hairline: #d2d2d7;          /* 分隔细线 */
+  --pill-bg: #f0f0f2;           /* 标签胶囊底色 */
+  --highlight: rgba(0, 113, 227, .16); /* 关键词高亮底色 */
+  --font: -apple-system, BlinkMacSystemFont, "SF Pro SC", "SF Pro Text",
+          "PingFang SC", "Helvetica Neue", "Segoe UI", "Microsoft YaHei", sans-serif;
+  --sheet-width: 840px;         /* 纸张宽度 */
+  --sheet-padding: 60px;        /* 纸张内边距 */
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+
+html { -webkit-font-smoothing: antialiased; }
+
+body {
+  font-family: var(--font);
+  background: linear-gradient(180deg, #fbfbfd 0%, var(--page-bg) 100%);
+  color: var(--text-primary);
+  padding: 48px 16px 96px;
+}
+
+/* ---------- 纸张 ---------- */
+.sheet {
+  max-width: var(--sheet-width);
+  margin: 0 auto;
+  background: var(--sheet-bg);
+  border: 1px solid rgba(0,0,0,.035);
+  border-radius: 22px;
+  box-shadow: 0 20px 50px rgba(0,0,0,.08), 0 2px 8px rgba(0,0,0,.04);
+  padding: var(--sheet-padding);
+}
+
+/* ---------- 悬浮工具栏（打印时自动隐藏） ---------- */
+.toolbar {
+  position: fixed;
+  top: 18px; right: 18px;
+  display: flex; gap: 8px;
+  z-index: 99;
+  padding: 6px;
+  border-radius: 999px;
+  border: 1px solid rgba(0,0,0,.05);
+  background: rgba(255,255,255,.72);
+  backdrop-filter: blur(20px) saturate(180%);
+  -webkit-backdrop-filter: blur(20px) saturate(180%);
+  box-shadow: 0 2px 12px rgba(0,0,0,.10);
+}
+.lang-switch {
+  position: relative;
+  display: flex; gap: 4px;
+}
+.lang-indicator {
+  position: absolute;
+  top: 0; left: 0;
+  width: 48px; height: 100%;
+  border-radius: 999px;
+  background: var(--text-primary);
+  transition: transform .32s cubic-bezier(.4, 0, .2, 1), width .32s cubic-bezier(.4, 0, .2, 1);
+  z-index: 0;
+}
+.toolbar button {
+  border: none; cursor: pointer;
+  font-family: var(--font);
+  font-size: 13px; font-weight: 500;
+  padding: 6px 14px;
+  border-radius: 999px;
+  background: transparent;
+  color: var(--text-secondary);
+  transition: color .2s;
+}
+.lang-switch button {
+  position: relative; z-index: 1;
+  width: 48px;
+  padding-left: 0; padding-right: 0;
+  text-align: center;
+}
+.toolbar button:hover { color: var(--text-primary); }
+.lang-switch button.active { color: #fff; }
+.toolbar button.print-btn { background: var(--accent); color: #fff; }
+.toolbar button.print-btn:hover { opacity: .88; }
+
+/* ---------- 页头 ---------- */
+.header { display: flex; justify-content: space-between; gap: 24px; }
+.header-main { flex: 1; min-width: 0; }
+.name {
+  font-size: 38px; font-weight: 700; letter-spacing: -.01em;
+  line-height: 1.12;
+}
+.name .aka { font-size: 18px; font-weight: 500; color: var(--text-secondary); margin-left: 10px; }
+.contacts {
+  display: flex; flex-wrap: wrap; gap: 8px 18px;
+  margin-top: 14px;
+  font-size: 13.5px; color: var(--text-secondary);
+  font-weight: 500;
+}
+.contacts a { color: var(--link); text-decoration: none; }
+.contacts a:hover { text-decoration: underline; text-underline-offset: 3px; }
+.contact-item { display: inline-flex; align-items: center; gap: 5px; }
+.contact-item svg { width: 14px; height: 14px; fill: currentColor; flex: none; }
+.summary {
+  margin-top: 18px;
+  font-size: 14.5px; line-height: 1.8; color: var(--text-body);
+}
+.summary-img {
+  display: inline-block;
+  height: 36px;
+  width: auto;
+  max-width: 170px;
+  object-fit: contain;
+  vertical-align: middle;
+  margin: 0px -2px 0px -10px;
+}
+.header-photo {
+  width: 88px; height: 88px;
+  border-radius: 20px;
+  object-fit: cover;
+  flex: none;
+}
+
+/* ---------- 分区标题 ---------- */
+.section { margin-top: 38px; }
+.section-title {
+  display: flex; align-items: center; gap: 10px;
+  font-size: 13px; font-weight: 650;
+  letter-spacing: .14em;
+  color: var(--text-primary);
+  text-transform: uppercase;
+  margin-bottom: 18px;
+}
+.section-title::before {
+  content: ""; width: 6px; height: 15px;
+  border-radius: 3px;
+  background: var(--accent);
+  flex: none;
+}
+.section-title::after {
+  content: ""; flex: 1; height: 1px; background: var(--hairline);
+}
+:lang(zh-CN) .section-title {
+  letter-spacing: .2em;
+}
+
+/* ---------- 条目（教育/工作实习/校园通用） ---------- */
+.entry { display: flex; gap: 16px; }
+.entry + .entry { margin-top: 24px; }
+.entry-icon {
+  width: 44px; height: 44px; flex: none;
+  border-radius: 26%;                       /* 苹果 squircle 近似 */
+  display: flex; align-items: center; justify-content: center;
+  color: #fff; font-size: 15px; font-weight: 700;
+  letter-spacing: .02em;
+  box-shadow: inset 0 0 0 1px rgba(0,0,0,.04), 0 2px 5px rgba(0,0,0,.10);
+  overflow: hidden;
+}
+.entry-icon img { width: 100%; height: 100%; object-fit: contain; padding: 7px; }
+.entry-body { flex: 1; min-width: 0; }
+.entry-head {
+  display: flex; justify-content: space-between; align-items: baseline; gap: 12px;
+}
+.entry-org { font-size: 16.5px; font-weight: 650; }
+.entry-org .org-sub { font-weight: 400; color: var(--text-secondary); font-size: 13.5px; }
+.entry-period {
+  font-size: 13px; color: var(--text-secondary);
+  white-space: nowrap; flex: none;
+  font-variant-numeric: tabular-nums;
+  font-weight: 500;
+}
+.entry-role { font-size: 13.5px; color: var(--text-secondary); margin-top: 3px; }
+
+/* 标签胶囊 */
+.tags { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 8px; }
+.tag {
+  font-size: 12px; line-height: 1;
+  padding: 5px 10px;
+  border-radius: 999px;
+  background: var(--pill-bg);
+  border: 1px solid rgba(0,0,0,.035);
+  color: #424245;
+  font-weight: 500;
+}
+
+/* 要点列表 */
+.bullets { margin-top: 8px; padding-left: 1.05em; }
+.bullets li {
+  font-size: 14px; line-height: 1.8; color: var(--text-body);
+  margin-top: 5px;
+}
+.bullets li::marker { color: #86868b; }
+.bullets strong,
+.summary strong,
+.project-desc strong {
+  color: var(--text-primary);
+  font-weight: 600;
+  background: linear-gradient(transparent 62%, var(--highlight) 0);
+  border-radius: 3px;
+  padding: 0 2px;
+}
+
+/* ---------- 项目（紧凑行） ---------- */
+.project-row { display: flex; }
+.project-main { flex: 1; min-width: 0; }
+.project-row + .project-row {
+  border-top: 1px solid var(--hairline);
+  padding-top: 11px;
+  margin-top: 11px;
+}
+.project-head {
+  display: flex; justify-content: space-between; align-items: baseline; gap: 12px;
+}
+.project-name { font-size: 15px; font-weight: 650; }
+.project-link { color: var(--link); text-decoration: none; }
+.project-link:hover { text-decoration: underline; text-underline-offset: 3px; }
+.project-role { font-weight: 400; font-size: 13px; color: var(--text-secondary); margin-left: 8px; }
+.project-desc { font-size: 13px; line-height: 1.75; color: var(--text-body); margin-top: 4px; }
+.project-row .tags { margin-top: 6px; }
+
+/* ---------- 技能 ---------- */
+.skill-row { display: flex; gap: 14px; align-items: baseline; }
+.skill-row + .skill-row { margin-top: 10px; }
+.skill-label {
+  flex: none; width: 3.2em;
+  font-size: 13px; font-weight: 650; color: #424245;
+  white-space: nowrap;
+}
+:lang(en) .skill-label {
+  width: 5.5em;
+}
+.skill-items { display: flex; flex-wrap: wrap; gap: 6px; }
+
+/* ---------- 奖项 ---------- */
+.award-row {
+  display: flex; justify-content: space-between; align-items: baseline; gap: 12px;
+  padding: 8px 0;
+}
+.award-name { font-size: 15px; font-weight: 650; }
+.award-detail { font-size: 13px; color: var(--text-secondary); margin-top: 2px; }
+
+/* ---------- 可访问交互（Apple 风格 focus） ---------- */
+a:focus-visible,
+button:focus-visible {
+  outline: 2px solid var(--link);
+  outline-offset: 3px;
+  border-radius: 4px;
+}
+.toolbar button.print-btn:focus-visible,
+.toolbar button.active:focus-visible { outline-color: #fff; }
+
+/* ---------- 打印（Cmd+P 即得 A4 PDF） ---------- */
+@page { size: A4; margin: 13mm 12mm; }
+@media print {
+  body { background: #fff; padding: 0; }
+  .toolbar { display: none !important; }
+  .sheet {
+    box-shadow: none; border-radius: 0; border: none;
+    max-width: none; padding: 0;
+  }
+
+  .section-title, .entry-head, .project-head { break-after: avoid; }
+  .entry, .skill-row, .award-row, .project-row { break-inside: avoid; }
+}
+
+/* ---------- 窄屏适配 ---------- */
+@media (max-width: 640px) {
+  body { padding: 20px 10px 60px; }
+  .sheet { padding: 32px 22px; }
+  .name { font-size: 27px; }
+}
+
+.sheet-error { padding: 48px 24px; text-align: center; color: var(--text-primary); font-family: var(--font); }
+.sheet-error-title { font-size: 20px; font-weight: 700; margin-bottom: 12px; }
+.sheet-error p { font-size: 14px; line-height: 1.8; color: var(--text-secondary); margin-top: 8px; }
+.sheet-error code { background: var(--pill-bg); border: 1px solid rgba(0,0,0,.04); padding: 2px 8px; border-radius: 6px; font-family: "SF Mono", Menlo, monospace; font-size: 12.5px; }
+</style>
+</head>
+<body>
+
+<!-- 悬浮工具栏：切换语言 / 导出 PDF -->
+<nav class="toolbar">
+  <div class="lang-switch" id="lang-switch">
+    <span class="lang-indicator" id="lang-indicator"></span>
+    <button id="btn-zh" onclick="setLang('zh')">中</button>
+    <button id="btn-en" onclick="setLang('en')">EN</button>
+  </div>
+  <button class="print-btn" onclick="printResume('compact')">导出 PDF</button>
+</nav>
+
+<main class="sheet" id="sheet"></main>
+
+<script>
+/* ============================================================
+   渲 染 逻 辑 ｜ 一般不需要改动
+   ============================================================ */
+
+const ICONS = {
+  phone: '<svg viewBox="0 0 24 24"><path d="M6.6 10.8c1.4 2.8 3.8 5.1 6.6 6.6l2.2-2.2c.3-.3.7-.4 1-.2 1.1.4 2.3.6 3.6.6.6 0 1 .4 1 1V20c0 .6-.4 1-1 1C10.6 21 3 13.4 3 4c0-.6.4-1 1-1h3.5c.6 0 1 .4 1 1 0 1.2.2 2.4.6 3.6.1.3 0 .7-.2 1l-2.3 2.2z"/></svg>',
+  mail:  '<svg viewBox="0 0 24 24"><path d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4-8 5-8-5V6l8 5 8-5v2z"/></svg>',
+  github:'<svg viewBox="0 0 24 24"><path d="M12 .5C5.7.5.5 5.7.5 12c0 5.1 3.3 9.4 7.9 10.9.6.1.8-.2.8-.6v-2c-3.2.7-3.9-1.5-3.9-1.5-.5-1.3-1.3-1.7-1.3-1.7-1-.7.1-.7.1-.7 1.2.1 1.8 1.2 1.8 1.2 1 1.8 2.8 1.3 3.4 1 .1-.8.4-1.3.7-1.6-2.6-.3-5.3-1.3-5.3-5.7 0-1.3.4-2.3 1.2-3.1-.1-.3-.5-1.5.1-3.1 0 0 1-.3 3.2 1.2a11 11 0 0 1 5.8 0C17.3 4.7 18.3 5 18.3 5c.6 1.6.2 2.8.1 3.1.7.8 1.2 1.8 1.2 3.1 0 4.4-2.7 5.4-5.3 5.7.4.4.8 1.1.8 2.2v3.2c0 .4.2.7.8.6 4.6-1.5 7.9-5.8 7.9-10.9C23.5 5.7 18.3.5 12 .5z"/></svg>',
+  homepage:'<svg viewBox="0 0 24 24"><path d="M12 2a10 10 0 1 0 0 20 10 10 0 0 0 0-20zm7.93 7h-3.02a15.6 15.6 0 0 0-1.58-3.9A8.02 8.02 0 0 1 19.93 9zM12 4.12c1.13 0 2.99 2.3 3.5 4.88h-7c.51-2.58 2.37-4.88 3.5-4.88zM4.07 9A8.02 8.02 0 0 1 7.67 5.1 15.6 15.6 0 0 0 6.09 9H4.07zm1.02 2h3.02a15.6 15.6 0 0 0 1.58 3.9A8.02 8.02 0 0 1 5.09 11zm3.68 6.9a15.6 15.6 0 0 1-1.58-3.9H4.07a8.02 8.02 0 0 0 3.6 3.9zM12 19.88c-1.13 0-2.99-2.3-3.5-4.88h7c-.51 2.58-2.37 4.88-3.5 4.88zm4.28-2.98a15.6 15.6 0 0 0 1.58-3.9h3.02a8.02 8.02 0 0 1-3.6 3.9z"/></svg>',
+};
+
+/* 转义 HTML，并把 **重点** 转成加粗 */
+function fmt(s) {
+  return String(s)
+    .replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;")
+    .replace(/\*\*(.+?)\*\*/g, "<strong>$1</strong>");
+}
+
+function renderIcon(icon) {
+  if (!icon) return "";
+  if (icon.img) {
+    return `<div class="entry-icon" style="background:#fff"><img src="${icon.img}" alt="${fmt(icon.alt || "")}"></div>`;
+  }
+  return `<div class="entry-icon" style="background:${icon.color || "#1d1d1f"}">${fmt(icon.text || "")}</div>`;
+}
+
+function renderEntries(items) {
+  return items.map(it => `
+    <div class="entry">
+      ${renderIcon(it.icon)}
+      <div class="entry-body">
+        <div class="entry-head">
+          <div class="entry-org">${fmt(it.org)}${it.orgSub ? ` <span class="org-sub">${fmt(it.orgSub)}</span>` : ""}</div>
+          ${it.period ? `<div class="entry-period">${fmt(it.period)}</div>` : ""}
+        </div>
+        <div class="entry-role">${fmt(it.role || "")}</div>
+        ${it.tags && it.tags.length ? `<div class="tags">${it.tags.map(t => `<span class="tag">${fmt(t)}</span>`).join("")}</div>` : ""}
+        ${it.bullets && it.bullets.length ? `<ul class="bullets">${it.bullets.map(b => `<li>${fmt(b)}</li>`).join("")}</ul>` : ""}
+      </div>
+    </div>`).join("");
+}
+
+function renderProjects(items) {
+  return items.map(it => {
+    const projectName = it.href
+      ? `<a class="project-link" href="${it.href}" target="_blank" rel="noopener">${fmt(it.name)}</a>`
+      : fmt(it.name);
+    return `
+    <div class="project-row">
+      <div class="project-main">
+        <div class="project-head">
+          <div class="project-name">${projectName}${it.role ? ` <span class="project-role">${fmt(it.role)}</span>` : ""}</div>
+          ${it.period ? `<div class="entry-period">${fmt(it.period)}</div>` : ""}
+        </div>
+        ${it.desc ? `<div class="project-desc">${fmt(it.desc)}</div>` : ""}
+        ${it.tags && it.tags.length ? `<div class="tags">${it.tags.map(t => `<span class="tag">${fmt(t)}</span>`).join("")}</div>` : ""}
+      </div>
+    </div>`;
+  }).join("");
+}
+
+function renderSkills(skills) {
+  return skills.levels.map(lv => `
+    <div class="skill-row">
+      <div class="skill-label">${fmt(lv.label)}</div>
+      <div class="skill-items">${lv.items.map(t => `<span class="tag">${fmt(t)}</span>`).join("")}</div>
+    </div>`).join("");
+}
+
+function renderAwards(awards) {
+  return awards.items.map(a => `
+    <div class="award-row">
+      <div>
+        <div class="award-name">${fmt(a.name)}</div>
+        <div class="award-detail">${fmt(a.detail)}</div>
+      </div>
+      <div class="entry-period">${fmt(a.period)}</div>
+    </div>`).join("");
+}
+
+const COMPACT_PRINT_CSS = `
+@page { size: A4; margin: 5mm 6mm; }
+@media print {
+  .name { font-size: 28px; }
+  .name .aka { font-size: 14px; }
+  .contacts { font-size: 11px; gap: 4px 12px; margin-top: 6px; }
+  .summary-img { height: 28px; margin: 0 -1px 0 -6px; }
+  .summary { line-height: 1.25; margin-top: 8px; }
+
+  .section { margin-top: 8px; }
+  .section-title {
+    font-size: 11px;
+    letter-spacing: .12em;
+    margin-bottom: 5px;
+  }
+  .section-title::before { width: 4px; height: 10px; border-radius: 2px; }
+  :lang(zh-CN) .section-title { letter-spacing: .16em; }
+
+  .entry { gap: 10px; }
+  .entry + .entry { margin-top: 7px; }
+  .entry-icon { width: 28px; height: 28px; font-size: 10px; box-shadow: none; }
+  .entry-icon img { padding: 4px; }
+  .entry-org { font-size: 12.5px; }
+  .entry-org .org-sub { font-size: 10px; }
+  .entry-period { font-size: 10.5px; }
+  .entry-role { font-size: 11px; margin-top: 2px; }
+
+  .tags { margin-top: 4px; gap: 4px; }
+  .tag { font-size: 9.5px; padding: 3px 7px; }
+  .bullets { margin-top: 4px; padding-left: .9em; }
+  .bullets li { font-size: 10px; line-height: 1.3; margin-top: 2px; }
+  .bullets strong,
+  .summary strong,
+  .project-desc strong {
+    color: var(--text-primary);
+    font-weight: 600;
+    background: linear-gradient(transparent 62%, var(--highlight) 0);
+    border-radius: 3px;
+    padding: 0 2px;
+  }
+
+  .project-row + .project-row { padding-top: 3px; margin-top: 3px; }
+  .project-name { font-size: 12px; }
+  .project-role { font-size: 10px; }
+  .project-desc { font-size: 9.5px; line-height: 1.4; margin-top: 2px; }
+  .project-row .tags { margin-top: 3px; }
+
+  .skill-row { gap: 8px; }
+  .skill-row + .skill-row { margin-top: 5px; }
+  .skill-label { font-size: 11px; }
+  .skill-items { gap: 4px; }
+
+  .award-row { padding: 1px 0; }
+  .award-name { font-size: 12px; }
+  .award-detail { font-size: 10.5px; }
+
+  :lang(en) .section { margin-top: 6px; }
+  :lang(en) .entry + .entry { margin-top: 5px; }
+  :lang(en) .bullets li { font-size: 9.5px; line-height: 1.25; }
+  :lang(en) .project-desc { font-size: 9px; line-height: 1.35; }
+  :lang(en) .summary-img { height: 28px; margin: 0 -1px 0 -6px; }
+  :lang(en) .tag { font-size: 9px; }
+  :lang(en) .section-title { margin-bottom: 4px; }
+}
+`;
+
+function printResume(mode) {
+  const old = document.getElementById("compact-print-style");
+  if (old) old.remove();
+  document.body.classList.toggle("compact-print", mode === "compact");
+  if (mode === "compact") {
+    const style = document.createElement("style");
+    style.id = "compact-print-style";
+    style.textContent = COMPACT_PRINT_CSS;
+    document.head.appendChild(style);
+  }
+  window.print();
+}
+
+window.addEventListener("afterprint", () => {
+  const style = document.getElementById("compact-print-style");
+  if (style) style.remove();
+  document.body.classList.remove("compact-print");
+});
+
+let RESUME = null;
+let lang = localStorage.getItem("resume-lang") || "zh";
+
+async function loadResume() {
+  const sheet = document.getElementById("sheet");
+  try {
+    const res = await fetch("resume.json", { cache: "no-store" });
+    if (!res.ok) throw new Error("HTTP " + res.status);
+    RESUME = await res.json();
+    render();
+  } catch (err) {
+    console.error("[Resume] load resume.json failed:", err);
+    sheet.innerHTML = `<div class="sheet-error">
+      <div class="sheet-error-title">无法读取 resume.json</div>
+      <p>请通过本地服务器打开，例如运行 <code>start.command</code>（macOS）或 <code>start.bat</code>（Windows）。</p>
+      <p>也可以执行：<code>python3 -m http.server 8765</code>，然后打开 <code>http://127.0.0.1:8765</code>。</p>
+    </div>`;
+  }
+}
+
+function positionLangIndicator() {
+  const switchEl = document.getElementById("lang-switch");
+  const indicator = document.getElementById("lang-indicator");
+  const active = document.getElementById(lang === "zh" ? "btn-zh" : "btn-en");
+  if (!switchEl || !indicator || !active) return;
+  const switchRect = switchEl.getBoundingClientRect();
+  const activeRect = active.getBoundingClientRect();
+  indicator.style.width = activeRect.width + "px";
+  indicator.style.transform = `translateX(${activeRect.left - switchRect.left}px)`;
+}
+window.addEventListener("resize", positionLangIndicator);
+
+function setLang(l) {
+  lang = l;
+  localStorage.setItem("resume-lang", l);
+  if (RESUME) render();
+}
+
+function render() {
+  if (!RESUME) return;
+  const d = RESUME[lang];
+  document.documentElement.lang = lang === "zh" ? "zh-CN" : "en";
+  document.title = `${d.name} · ${lang === "zh" ? "简历" : "Resume"}`;
+  document.getElementById("btn-zh").classList.toggle("active", lang === "zh");
+  document.getElementById("btn-en").classList.toggle("active", lang === "en");
+  positionLangIndicator();
+
+  const photoHtml = RESUME.photo
+    ? `<img class="header-photo" src="${RESUME.photo}" alt="photo">` : "";
+
+  const summaryImg = RESUME.summaryImage ? `<img class="summary-img" src="${RESUME.summaryImage}" alt="">` : "";
+
+  document.getElementById("sheet").innerHTML = `
+    <header class="header">
+      <div class="header-main">
+        <h1 class="name">${fmt(d.name)}<span class="aka">${fmt(d.aka)}</span></h1>
+        <div class="contacts">
+          ${d.contacts.map(c => {
+            const inner = `<span class="contact-item">${ICONS[c.icon] || ""}${fmt(c.text)}</span>`;
+            return c.href ? `<a href="${c.href}">${inner}</a>` : inner;
+          }).join("")}
+        </div>
+        <p class="summary">${fmt(d.summary).replace("{{image}}", summaryImg)}</p>
+      </div>
+      ${photoHtml}
+    </header>
+
+    <section class="section">
+      <div class="section-title">${fmt(d.education.title)}</div>
+      ${renderEntries(d.education.items)}
+    </section>
+
+    <section class="section">
+      <div class="section-title">${fmt(d.skills.title)}</div>
+      ${renderSkills(d.skills)}
+    </section>
+
+    <section class="section">
+      <div class="section-title">${fmt(d.work.title)}</div>
+      ${renderEntries(d.work.items)}
+    </section>
+
+    <section class="section">
+      <div class="section-title">${fmt(d.internship.title)}</div>
+      ${renderEntries(d.internship.items)}
+    </section>
+
+    <section class="section">
+      <div class="section-title">${fmt(d.campus.title)}</div>
+      ${renderEntries(d.campus.items)}
+    </section>
+
+    <section class="section">
+      <div class="section-title">${fmt(d.projects.title)}</div>
+      ${renderProjects(d.projects.items)}
+    </section>
+
+    <section class="section">
+      <div class="section-title">${fmt(d.awards.title)}</div>
+      ${renderAwards(d.awards)}
+    </section>
+  `;
+}
+loadResume();
+</script>
+
+</body>
+</html>
